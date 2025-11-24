@@ -1,59 +1,86 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+============================================
+NETWORK PRO - DESIGN SYSTEM
+============================================
+LinkedIn Remake - Professional Networking Platform
+Based on pixel-perfect extraction from design reference
+All colors are HSL for Tailwind compatibility
+============================================
 */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* Font System - Inter for professional, modern look */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* ========================================
+     COLOR SYSTEM - Exact values from design reference
+     ======================================== */
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  /* Background Colors */
+  --background: 214 47% 96%;        /* #F0F5FB - Light blue-gray page background */
+  --foreground: 217 33% 17%;        /* #1E293B - Dark navy text */
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  /* Card Colors */
+  --card: 0 0% 100%;                /* #FFFFFF - Pure white cards */
+  --card-foreground: 217 33% 17%;   /* #1E293B - Dark text on cards */
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Popover Colors */
+  --popover: 0 0% 100%;             /* #FFFFFF - White popovers */
+  --popover-foreground: 217 33% 17%; /* #1E293B - Dark text */
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  /* Primary Blue - Brand color from design */
+  --primary: 217 91% 60%;           /* #3B82F6 - LinkedIn-style blue */
+  --primary-foreground: 0 0% 100%;  /* #FFFFFF - White text on blue */
+  --primary-hover: 221 83% 53%;     /* #2563EB - Darker blue for hover */
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Secondary Gray */
+  --secondary: 210 20% 98%;         /* #F8FAFC - Very light gray */
+  --secondary-foreground: 217 33% 17%; /* #1E293B - Dark text */
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
-  --destructive-foreground: 0 0% 100%;
+  /* Muted Grays */
+  --muted: 214 32% 91%;             /* #E2E8F0 - Light gray borders */
+  --muted-foreground: 215 16% 47%;  /* #64748B - Gray text (metadata, timestamps) */
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Accent */
+  --accent: 214 95% 93%;            /* #DBEAFE - Light blue accent */
+  --accent-foreground: 217 91% 60%; /* #3B82F6 - Blue text on light blue */
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Destructive (Error states) */
+  --destructive: 0 72% 60%;         /* #EF4444 - Red for errors */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF - White text on red */
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  /* Success State */
+  --success: 158 64% 52%;           /* #10B981 - Green for success */
+  --success-foreground: 0 0% 100%;  /* #FFFFFF - White text on green */
+
+  /* Borders and Inputs */
+  --border: 214 32% 91%;            /* #E2E8F0 - Light gray borders */
+  --input: 214 32% 91%;             /* #E2E8F0 - Input borders */
+  --ring: 217 91% 60%;              /* #3B82F6 - Focus ring (blue) */
+
+  /* Border Radius - Exact values from design */
+  --radius: 0.75rem;                /* 12px - Card border radius */
+  --radius-button: 0.5rem;          /* 8px - Button border radius */
+  --radius-input: 0.375rem;         /* 6px - Input border radius */
+
+  /* Shadows - Exact values from design reference */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-button: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  /* Sidebar Colors */
+  --sidebar-background: 0 0% 100%;  /* #FFFFFF - White sidebar */
+  --sidebar-foreground: 217 33% 17%; /* #1E293B - Dark text */
+  --sidebar-primary: 217 91% 60%;   /* #3B82F6 - Blue primary */
+  --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF - White text */
+  --sidebar-accent: 210 20% 98%;    /* #F8FAFC - Light gray accent */
+  --sidebar-accent-foreground: 217 33% 17%; /* #1E293B - Dark text */
+  --sidebar-border: 214 32% 91%;    /* #E2E8F0 - Light borders */
+  --sidebar-ring: 217 91% 60%;      /* #3B82F6 - Blue focus ring */
 }
 
 .dark {
@@ -168,28 +195,160 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
+/* ========================================
+   GLOBAL STYLES - Typography & Layout
+   ======================================== */
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
+body {
+  font-family: var(--font-primary);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Typography Scale - Exact from design reference */
+h1 {
+  font-size: 24px;
+  line-height: 32px;
   font-weight: 600;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+h5 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: hsl(var(--muted-foreground));
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
+.text-sm {
+  font-size: 13px;
+  line-height: 18px;
 }
 
-/* Subtle shadows for depth */
+.text-xs {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* Link Styles */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: hsl(var(--primary-hover));
+}
+
+/* Button Base Styles */
+button {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 150ms ease;
+  cursor: pointer;
+}
+
+/* Input Base Styles */
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Focus Styles - Accessible focus rings */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ========================================
+   SHADOW UTILITIES - From design reference
+   ======================================== */
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-card-hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.shadow-button {
+  box-shadow: var(--shadow-button);
+}
+
+.shadow-dropdown {
+  box-shadow: var(--shadow-dropdown);
+}
+
+/* Legacy shadow classes for compatibility */
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
@@ -200,4 +359,32 @@ button {
 
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.text-primary {
+  color: hsl(var(--primary));
+}
+
+.bg-card {
+  background-color: hsl(var(--card));
+}
+
+.border-radius-card {
+  border-radius: var(--radius);
+}
+
+.border-radius-button {
+  border-radius: var(--radius-button);
+}
+
+.border-radius-input {
+  border-radius: var(--radius-input);
 }
